@@ -12,6 +12,7 @@ import { useRouter } from 'next/navigation'
 import { useSnackbar } from 'notistack'
 import { useState } from 'react'
 import { UserForm } from './components/userForm'
+import Footer from '../home/components/Footer'
 
 export default function ProfilePage() {
   const authentication = useAuthentication()
@@ -56,30 +57,33 @@ export default function ProfilePage() {
   }
 
   return (
-    <PageLayout layout="super-narrow">
-      <Flex justify="space-between" align="center">
-        <Typography.Title level={1}>Profile</Typography.Title>
-        <Button
-          onClick={handleClickLogout}
-          loading={isLoadingLogout}
-          className="bg-yellow-400 text-black"
-        >
-          Logout
-        </Button>
-      </Flex>
+    <>
+      <PageLayout layout="super-narrow">
+        <Flex justify="space-between" align="center">
+          <Typography.Title level={1}>Profile</Typography.Title>
+          <Button
+            onClick={handleClickLogout}
+            loading={isLoadingLogout}
+            className="bg-yellow-400 text-black"
+          >
+            Logout
+          </Button>
+        </Flex>
 
-      <Flex justify="center" style={{ marginBottom: '30px' }}>
-        <Avatar size={80} src={user?.pictureUrl}>
-          {userInitials}
-        </Avatar>
-      </Flex>
+        <Flex justify="center" style={{ marginBottom: '30px' }}>
+          <Avatar size={80} src={user?.pictureUrl}>
+            {userInitials}
+          </Avatar>
+        </Flex>
 
-      <UserForm
-        user={user}
-        isLoading={isLoading}
-        isDisabled={isLoadingLogout}
-        onSubmit={handleSubmit}
-      />
-    </PageLayout>
+        <UserForm
+          user={user}
+          isLoading={isLoading}
+          isDisabled={isLoadingLogout}
+          onSubmit={handleSubmit}
+        />
+      </PageLayout>
+      <Footer />
+    </>
   )
 }

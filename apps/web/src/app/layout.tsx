@@ -22,7 +22,7 @@ export default function AppLayout({ children }: { children: ReactNode }) {
               <CoreStoreProvider>
                 <AuthenticationProvider>
                   <SocketProvider>
-                    <MrbMain name="developer challenges">{children}</MrbMain>
+                    <MrbMain name="hey do you wanna code?">{children}</MrbMain>
                   </SocketProvider>
                 </AuthenticationProvider>
               </CoreStoreProvider>
