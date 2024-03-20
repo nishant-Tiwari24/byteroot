@@ -75,7 +75,7 @@ export default function LoginPage() {
         </div>
         <div className="w-full md:w-1/2 min-h-screen flex items-center justify-center">
           <div className="w-full md:w-96">
-            <Flex vertical gap="20px">
+            <Flex vertical gap="-20px" className="-z-20">
               <Header description="Welcome back!" />
               <ErrorAlert errors={errors} />
 

@@ -20,7 +20,7 @@ export const Logo: React.FC<Props> = ({
     <>
       <img
         src={'./4.png'}
-        height="50px"
+        height="40px"
         width="150px"
         style={{
           borderRadius: '10px',

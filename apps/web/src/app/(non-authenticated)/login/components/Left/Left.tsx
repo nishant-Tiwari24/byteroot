@@ -411,10 +411,10 @@ export function GlobeDemo() {
           }}
           className="div"
         >
-          <h2 className="text-center text-xl md:text-4xl font-bold text-white">
+          <h2 className="text-center text-xl md:text-4xl font-bold text-gray-200">
             Developer Coding Arena
           </h2>
-          <p className="text-center text-base md:text-lg font-normal text-neutral-200 max-w-md mt-2 mx-auto">
+          <p className="text-center text-base md:text-lg font-normal text-green-200 max-w-md mt-2 mx-auto">
             This globe is interactive and customizable. Have fun with it, and
             don&apos;t forget to share it. :)
           </p>

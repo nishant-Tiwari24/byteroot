@@ -47,7 +47,12 @@ export const Topbar: React.FC<Props> = ({
             mode="horizontal"
             items={items}
             selectedKeys={[pathname]}
-            overflowedIndicator={<MenuOutlined />}
+            overflowedIndicator={
+              <MenuOutlined
+                onPointerEnterCapture={undefined}
+                onPointerLeaveCapture={undefined}
+              />
+            }
             color="#000"
             style={{ fontSize: '16px', color: '#fff' }}
             className="font-sans font-extralight"
@@ -59,7 +64,12 @@ export const Topbar: React.FC<Props> = ({
             mode="horizontal"
             items={itemsMobile}
             selectedKeys={[pathname]}
-            overflowedIndicator={<MenuOutlined />}
+            overflowedIndicator={
+              <MenuOutlined
+                onPointerEnterCapture={undefined}
+                onPointerLeaveCapture={undefined}
+              />
+            }
             style={{ width: '46px', fontSize: '18px', color: '#fff' }}
             className="font-Roboto font-bold"
           />

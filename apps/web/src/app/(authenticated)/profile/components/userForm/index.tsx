@@ -57,7 +57,7 @@ export const UserForm: React.FC<Props> = ({
 
       <Form.Item>
         <Button
-          type="primary"
+          className="float-right bg-green-400 text-black"
           htmlType="submit"
           loading={isLoading}
           disabled={isDisabled}

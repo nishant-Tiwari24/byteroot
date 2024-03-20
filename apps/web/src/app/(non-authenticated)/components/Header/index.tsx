@@ -1,4 +1,4 @@
-import { Flex, Image, Typography } from 'antd'
+import { Flex, Typography } from 'antd'
 import React from 'react'
 
 const { Text, Title } = Typography
@@ -15,12 +15,7 @@ export const Header: React.FC<Props> = ({
   return (
     <>
       <Flex justify="center">
-        <Image
-          height={100}
-          width={100}
-          preview={false}
-          src="https://marblism-dashboard-api--production-public.s3.us-west-1.amazonaws.com/8fRBDj-developerchallenges-x7km"
-        />
+        <img height={'50px'} width={'250px'} src="./4.png" alt="logo" />
       </Flex>
 
       <Flex vertical align="center">
