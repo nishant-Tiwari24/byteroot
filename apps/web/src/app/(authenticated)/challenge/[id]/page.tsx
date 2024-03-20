@@ -42,59 +42,60 @@ export default function ChallengeDetailsPage() {
     router.push(`/challenge/${params.id}/discussion`)
   }
 
-  // Temporary fix to bypass the detailed property checks for icons
   const PlayCircleOutlinedAny: any = PlayCircleOutlined
   const MessageOutlinedAny: any = MessageOutlined
 
   return (
-    <PageLayout layout="full-width">
-      <div>
-        <Row justify="center">
-          <Col>
-            <Card>
-              <Title level={2}>{challenge?.name}</Title>
-              <Text type="secondary">
-                By {challenge?.user?.name || 'Unknown author'}
-              </Text>
-              <Paragraph>
-                <Text strong>Description: </Text>
-                {challenge?.description || 'No description provided.'}
-              </Paragraph>
-              <Paragraph>
-                <Text strong>Difficulty Level: </Text>
-                {challenge?.difficultyLevel}
-              </Paragraph>
-              <Paragraph>
-                <Text strong>Programming Language: </Text>
-                {challenge?.programmingLanguage}
-              </Paragraph>
-              <Paragraph>
-                <Text strong>Sample Input: </Text>
-                <pre>{challenge?.sampleInput}</pre>
-              </Paragraph>
-              <Paragraph>
-                <Text strong>Sample Output: </Text>
-                <pre>{challenge?.sampleOutput}</pre>
-              </Paragraph>
-              <Space>
-                <Button
-                  type="primary"
-                  icon={<PlayCircleOutlinedAny />}
-                  onClick={navigateToAttempt}
-                >
-                  Attempt Challenge
-                </Button>
-                <Button
-                  icon={<MessageOutlinedAny />}
-                  onClick={navigateToDiscussion}
-                >
-                  Join Discussion
-                </Button>
-              </Space>
-            </Card>
-          </Col>
-        </Row>
+    <div className="h-screen w-screen flex justify-center items-center">
+      <div className="w-full max-w-[1000px]">
+        <div>
+          <Row justify="center">
+            <Col>
+              <Card className="w-full">
+                <Title level={2}>{challenge?.name}</Title>
+                <Text type="secondary">
+                  By {challenge?.user?.name || 'Unknown author'}
+                </Text>
+                <Paragraph>
+                  <Text strong>Description: </Text>
+                  {challenge?.description || 'No description provided.'}
+                </Paragraph>
+                <Paragraph>
+                  <Text strong>Difficulty Level: </Text>
+                  {challenge?.difficultyLevel}
+                </Paragraph>
+                <Paragraph>
+                  <Text strong>Programming Language: </Text>
+                  {challenge?.programmingLanguage}
+                </Paragraph>
+                <Paragraph>
+                  <Text strong>Sample Input: </Text>
+                  <pre>{challenge?.sampleInput}</pre>
+                </Paragraph>
+                <Paragraph>
+                  <Text strong>Sample Output: </Text>
+                  <pre>{challenge?.sampleOutput}</pre>
+                </Paragraph>
+                <Space>
+                  <Button
+                    type="primary"
+                    icon={<PlayCircleOutlinedAny />}
+                    onClick={navigateToAttempt}
+                  >
+                    Attempt Challenge
+                  </Button>
+                  <Button
+                    icon={<MessageOutlinedAny />}
+                    onClick={navigateToDiscussion}
+                  >
+                    Join Discussion
+                  </Button>
+                </Space>
+              </Card>
+            </Col>
+          </Row>
+        </div>
       </div>
-    </PageLayout>
+    </div>
   )
 }
