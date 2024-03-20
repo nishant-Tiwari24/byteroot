@@ -25,7 +25,7 @@ export const TabProfile: React.FC = () => {
         alt={user?.name}
         size="default"
         onClick={() => goTo(RouterObject.route.PROFILE)}
-        style={{ cursor: 'pointer' }}
+        style={{ cursor: 'pointer', borderRadius: '4px' }}
       >
         {userInitials}
       </Avatar>

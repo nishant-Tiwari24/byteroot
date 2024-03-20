@@ -29,7 +29,7 @@ export const Topbar: React.FC<Props> = ({
     <Header
       className="border-b-2 border-zinc-700"
       style={{
-        height: '80px',
+        height: '65px',
       }}
     >
       <Flex
@@ -48,8 +48,9 @@ export const Topbar: React.FC<Props> = ({
             items={items}
             selectedKeys={[pathname]}
             overflowedIndicator={<MenuOutlined />}
-            style={{ fontSize: '18px', color: '#fff' }}
-            className="font-Roboto font-bold"
+            color="#000"
+            style={{ fontSize: '16px', color: '#fff' }}
+            className="font-sans font-extralight"
           />
         )}
 
