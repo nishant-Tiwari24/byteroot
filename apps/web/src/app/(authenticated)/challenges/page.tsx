@@ -1,7 +1,12 @@
 'use client'
-import { CodeOutlined, StarFilled } from '@ant-design/icons'
+import {
+  CodeOutlined,
+  HeartFilled,
+  LikeFilled,
+  LikeOutlined,
+} from '@ant-design/icons'
 import { Api } from '@web/domain'
-import { Card, Col, Row, Select, Typography } from 'antd'
+import { Card, Col, Row, Select, Statistic, Typography } from 'antd'
 import { useRouter } from 'next/navigation'
 import { useSnackbar } from 'notistack'
 import { useEffect, useState } from 'react'
@@ -34,6 +39,10 @@ export default function ExploreChallengesPage() {
 
     fetchChallenges()
   }, [difficulty, language])
+  const [likes, setLikes] = useState(0)
+  const handleLike = () => {
+    setLikes(likes + 1)
+  }
 
   return (
     <div className="min-h-screen py-8">
@@ -73,12 +82,20 @@ export default function ExploreChallengesPage() {
               <Card
                 hoverable
                 actions={[
-                  <StarFilled
-                    className="text-yellow-400 hover:text-yellow-500"
-                    key="star"
-                    onPointerEnterCapture={undefined}
-                    onPointerLeaveCapture={undefined}
-                  />,
+                  <Col span={8} className="text-sm">
+                    <Statistic
+                      className="hover:text-blue-400"
+                      prefix={
+                        <HeartFilled
+                          value={likes}
+                          className="hover:text-blue-400 focus:text-blue-400 w-4 h-4"
+                          onClick={handleLike}
+                          onPointerEnterCapture={undefined}
+                          onPointerLeaveCapture={undefined}
+                        />
+                      }
+                    />
+                  </Col>,
                   <CodeOutlined
                     key="code"
                     className="text-green-400 hover:text-blue-500 cursor-pointer"
