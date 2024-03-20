@@ -1,6 +1,7 @@
 import { Box, Button, Text, useToast } from '@chakra-ui/react'
 import { Api } from '@web/domain'
 import { useAuthentication } from '@web/modules/authentication'
+import { Form } from 'antd'
 import { executeCode } from 'apps/server/src/modules/solve/api.js'
 import { useParams, useRouter } from 'next/navigation'
 import { useSnackbar } from 'notistack'
@@ -19,6 +20,7 @@ const Output = ({ editorRef, language }) => {
   const router = useRouter()
   const params = useParams<any>()
   const [challengName, setChallengeName] = useState<any>(null)
+  const [form] = Form.useForm()
 
   useEffect(() => {
     const fetchChallenge = async () => {
@@ -26,7 +28,7 @@ const Output = ({ editorRef, language }) => {
         const challengeFound = await Api.Challenge.findOne(params.id, {
           includes: ['user'],
         })
-        console.log(challengeFound)
+        // console.log(challengeFound)
         setChallengeName(challengeFound)
       } catch (error) {
         enqueueSnackbar('Failed to load challenge details', {
@@ -62,10 +64,11 @@ const Output = ({ editorRef, language }) => {
     }
   }
 
-  const submit = async () => {
+  const submit = async values => {
     try {
       setIsSubmiting(true)
       await Api.Attempt.createOneByChallengeId(params.id, {
+        // value: values.name,
         userId: userId!,
       })
       enqueueSnackbar('Solution submitted successfully', { variant: 'success' })
@@ -116,7 +119,6 @@ const Output = ({ editorRef, language }) => {
       >
         Run Code
       </Button>
-
       <Button
         variant="outline"
         colorScheme="green"

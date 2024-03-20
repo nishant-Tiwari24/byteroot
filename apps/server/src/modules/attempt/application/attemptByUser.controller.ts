@@ -37,25 +37,6 @@ export class AttemptByUserController {
     return items
   }
 
-  // ------------------
-  // @Post('user/:userId/attemtps')
-  // async createOneByUserId(
-  //   @Param('userId') userId: string,
-  //   @Body() body: AttemptCreateDto,
-  //   @Req() request: Request,
-  // ) {
-  //   const { user } = this.authenticationDomainFacade.getRequestPayload(request)
-  //   const valuesUpdated = { ...body, userId }
-  //   const item = await this.attemptDomainFacade.create(valuesUpdated)
-  //   await this.eventService.emit<AttemptApplicationEvent.AttemptCreated.Payload>(
-  //     AttemptApplicationEvent.AttemptCreated.key,
-  //     {
-  //       id: item.id,
-  //       userId: user.id,
-  //     },
-  //   )
-  // }
-
   @Post('/user/:userId/attempts')
   async createByUserId(
     @Param('userId') userId: string,
