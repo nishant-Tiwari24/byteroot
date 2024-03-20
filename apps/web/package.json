@@ -38,6 +38,7 @@
     "papaparse": "^5.4.1",
     "react": "^18",
     "react-beautiful-dnd": "^13.1.1",
+    "react-contribution-calendar": "^1.5.0",
     "react-dom": "^18",
     "react-router-dom": "^6.22.3",
     "recharts": "^2.11.0",
