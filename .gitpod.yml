@@ -1,0 +1,25 @@
+tasks:
+  - name: Setup
+    command: |
+      pnpm run init
+      GITPOD_CLIENT_BASE_URL="${GITPOD_WORKSPACE_URL/https:\/\//https:\/\/8099-}"
+      GITPOD_SERVER_BASE_URL="${GITPOD_WORKSPACE_URL/https:\/\//https:\/\/3099-}"
+      GITPOD_TOOL_BASE_URL="${GITPOD_WORKSPACE_URL/https:\/\//https:\/\/3002-}"
+      sed -i "s|SERVER_CLIENT_BASE_URL=.*|SERVER_CLIENT_BASE_URL=\"$GITPOD_CLIENT_BASE_URL\"|" ./apps/server/.env
+      sed -i "s|SERVER_BASE_URL=.*|SERVER_BASE_URL=\"$GITPOD_SERVER_BASE_URL\"|" ./apps/server/.env
+      sed -i "s|API_BASE_URL=.*|API_BASE_URL=\"$GITPOD_SERVER_BASE_URL\"|" ./apps/web/.env
+      sed -i "s|TOOL_BASE_URL=.*|TOOL_BASE_URL=\"$GITPOD_TOOL_BASE_URL\"|" ./apps/web/.env
+      npm install -g @marblism/studio@0.1.40
+      marblism-studio
+
+ports:
+  - name: Web
+    port: 8099
+    onOpen: open-browser
+    visibility: public
+  - name: Server
+    port: 3099
+    visibility: public
+  - name: Tool
+    port: 3002
+    visibility: public

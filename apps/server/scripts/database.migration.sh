@@ -1,0 +1,3 @@
+#!/bin/bash
+
+DATABASE_MIGRATION_ACTIVE=true || set DATABASE_MIGRATION_ACTIVE=true

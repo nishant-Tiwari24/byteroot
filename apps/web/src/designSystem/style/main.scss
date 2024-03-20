@@ -1,0 +1,81 @@
+@import './spacing.scss';
+
+body {
+  display: block;
+  margin: 0px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+body,
+.mrb-main {
+  min-height: 100vh;
+  min-height: 100svh;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.ant-breadcrumb a {
+  text-decoration: none;
+}
+.ant-dropdown-menu-title-content a {
+  text-decoration: none;
+}
+
+.ant-layout-sider-children {
+  width: 100%;
+}
+.ant-layout-sider-children {
+  display: flex;
+  flex-direction: column;
+}
+.ant-menu-item-selected::after,
+.ant-menu-item::after,
+.ant-menu-item-active::after,
+.ant-menu-horizontal,
+.ant-menu-submenu,
+.ant-menu-submenu::after {
+  border-bottom: none !important;
+}
+.ant-typography a,
+.ant-btn-link > span {
+  text-underline-offset: 0.2em;
+  text-decoration: underline;
+}
+.ant-typography a:hover {
+  text-underline-offset: 0.2em;
+  text-decoration: underline;
+}
+.ant-menu-item-selected {
+  font-weight: 500;
+}
+
+.ant-form {
+  .ant-form-item:last-child {
+    margin-bottom: 0;
+  }
+
+  .ant-form-item {
+    font-weight: 500;
+  }
+
+  .ant-form-item label:not(.ant-form-item-required):after {
+    content: '(optional)';
+    font-weight: normal;
+    visibility: visible;
+    padding-left: 10px;
+  }
+}
+
+.ant-btn-background-ghost {
+  &:active,
+  &:hover {
+    border-color: transparent;
+  }
+}
+
+.ant-layout {
+  // background-color: black;
+}
+

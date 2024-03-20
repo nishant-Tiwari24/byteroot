@@ -1,0 +1,15 @@
+
+Here is the best way to handle upload with Antd and the UploadApi: 
+
+const [fileList, setFileList] = useState([])
+
+const handleUpload = async options => {
+  const { file } = options
+  const url = await UploadApi.upload(file)
+  setFileList(fileList => [...fileList, {url: url, status:'done'}])
+}
+
+<Upload fileList={fileList} customRequest={handleUpload}  maxCount={1}>
+Upload
+</Upload>
+
