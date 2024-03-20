@@ -56,7 +56,7 @@ export const Topbar: React.FC<Props> = ({
         {' '}
         <Flex
           align="center"
-          className=""
+          className="text-green-400"
           style={{ flex: 3, fontSize: '18px', color: '#fff' }}
         >
           {logo}
@@ -68,7 +68,7 @@ export const Topbar: React.FC<Props> = ({
               selectedKeys={[pathname]}
               overflowedIndicator={<MenuOutlined />}
               style={{ flex: 3, fontSize: '18px', color: '#fff' }}
-              className="font-Roboto"
+              className="font-Roboto font-bold "
             />
           </Flex>
 

@@ -23,6 +23,7 @@
     "axios": "^1.6.7",
     "clsx": "^2.1.0",
     "framer-motion": "^11.0.14",
+    "openai": "^4.29.2",
     "tailwind-merge": "^2.2.2",
     "three": "^0.162.0",
     "three-globe": "^2.31.0"
