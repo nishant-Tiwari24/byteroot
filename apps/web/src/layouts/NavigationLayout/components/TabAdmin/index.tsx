@@ -9,7 +9,9 @@ export const TabAdmin: React.FC = () => {
     <>
       {store.isAdmin && (
         <div>
-          <Tag color="red">Admin</Tag>
+          <Tag color="yellow" className="w-14 h-6 text-center font-lg">
+            Admin
+          </Tag>
         </div>
       )}
     </>

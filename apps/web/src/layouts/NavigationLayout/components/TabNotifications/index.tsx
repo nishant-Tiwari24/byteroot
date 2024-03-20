@@ -19,11 +19,12 @@ export const TabNotification: React.FC = () => {
       <Badge
         count={countNotifications}
         overflowCount={99}
-        className=" text-white font-semibold rounded-full w-6 h-6 flex justify-center items-center"
+        color="yellow"
+        className=" text-green-400 font-semibold rounded-full w-6 h-12 flex justify-center items-center"
       >
         <Button
           onClick={() => goTo(RouterObject.route.NOTIFICATIONS)}
-          icon={<BellFilled />}
+          icon={<BellFilled className="text-green-200" size={24} />}
           shape="circle"
         />
       </Badge>

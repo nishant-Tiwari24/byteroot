@@ -5,7 +5,7 @@ import React, { ImgHTMLAttributes } from 'react'
 interface Props extends ImgHTMLAttributes<HTMLImageElement> {}
 
 export const Logo: React.FC<Props> = ({
-  width = 50,
+  width = 100,
   height = 50,
   style,
   ...props
@@ -19,9 +19,9 @@ export const Logo: React.FC<Props> = ({
   return (
     <>
       <img
-        src="https://marblism-dashboard-api--production-public.s3.us-west-1.amazonaws.com/8fRBDj-developerchallenges-x7km"
-        height={width}
-        width={height}
+        src={'./4.png'}
+        height="50px"
+        width="150px"
         style={{
           borderRadius: '10px',
           cursor: 'pointer',

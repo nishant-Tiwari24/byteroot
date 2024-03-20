@@ -46,108 +46,114 @@ export default function PostChallengePage() {
   }
 
   return (
-    <div className="w-full flex justify-center">
-      <div className="mt-10 w-[1200px] border-2 border-zinc-800 bg-gradient-to-br from-black to-zinc-800 shadow-lg p-8 py-4 rounded-lg bg-zinc-900">
-        <div style={{ maxWidth: '1100px', margin: 'auto' }}>
-          <Title
-            className="bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50"
-            level={3}
-            style={{ fontSize: '1.5rem', marginBottom: '1rem' }}
-          >
-            Submit a New Coding Challenge
-          </Title>
-          <Text style={{ fontSize: '1rem', marginBottom: '1rem' }}>
-            Share your coding challenge with the community.
-          </Text>{' '}
-          <Form
-            form={form}
-            layout="vertical"
-            onFinish={onFinish}
-            style={{ marginTop: '20px' }}
-          >
-            <Form.Item
-              name="name"
-              label="Challenge Name"
-              rules={[{ required: true }]}
+    <>
+      <div className="w-full flex justify-center">
+        <div className="mt-10 w-[1200px] border-2 border-zinc-800 bg-gradient-to-br from-black to-zinc-800 shadow-lg p-8 py-4 rounded-lg bg-zinc-900">
+          <div style={{ maxWidth: '1100px', margin: 'auto' }}>
+            <h1
+              className="font-robo font-semibold text-green-400"
+              style={{ fontSize: '2rem', marginBottom: '1rem' }}
             >
-              <Input style={{ fontSize: '1rem' }} />
-            </Form.Item>
-
-            <Form.Item name="description" label="Description">
-              <Input.TextArea rows={4} style={{ fontSize: '1rem' }} />
-            </Form.Item>
-
-            <Form.Item
-              name="sampleInput"
-              label="Sample Input"
-              rules={[{ required: true }]}
+              Submit a New Coding Challenge
+            </h1>
+            <p
+              style={{ fontSize: '1rem', marginBottom: '1rem' }}
+              className="font-mono "
             >
-              <Input style={{ fontSize: '1rem' }} />
-            </Form.Item>
-
-            <Form.Item
-              name="sampleOutput"
-              label="Sample Output"
-              rules={[{ required: true }]}
+              Share your coding challenge with the community.
+            </p>{' '}
+            <Form
+              form={form}
+              layout="vertical"
+              onFinish={onFinish}
+              style={{ marginTop: '20px' }}
             >
-              <Input style={{ fontSize: '1rem' }} />
-            </Form.Item>
-
-            <Form.Item
-              name="difficultyLevel"
-              label="Difficulty Level"
-              rules={[{ required: true }]}
-            >
-              <Select style={{ fontSize: '1rem' }}>
-                <Option value="Easy">Easy</Option>
-                <Option value="Medium">Medium</Option>
-                <Option value="Hard">Hard</Option>
-              </Select>
-            </Form.Item>
-
-            <Form.Item
-              name="programmingLanguage"
-              label="Programming Language"
-              rules={[{ required: true }]}
-            >
-              <Input style={{ fontSize: '1rem' }} />
-            </Form.Item>
-
-            <Form.Item label="Image">
-              <Upload
-                fileList={fileList}
-                customRequest={handleUpload}
-                maxCount={1}
+              <Form.Item
+                name="name"
+                label="Challenge Name"
+                className=""
+                rules={[{ required: true }]}
               >
-                <Button
-                  icon={
-                    <UploadOutlined
-                      onPointerEnterCapture={undefined}
-                      onPointerLeaveCapture={undefined}
-                    />
-                  }
-                  style={{ fontSize: '1rem' }} // Custom font size for Button
-                >
-                  Click to Upload
-                </Button>
-              </Upload>
-            </Form.Item>
+                <Input style={{ fontSize: '1rem' }} />
+              </Form.Item>
 
-            <Form.Item>
-              <Button
-                type="primary"
-                htmlType="submit"
-                className="bg-green-500 rounded-md"
-                style={{ fontSize: '1rem' }} // Custom font size for Button
-                onSelect={onFinish}
+              <Form.Item name="description" label="Description">
+                <Input.TextArea rows={4} style={{ fontSize: '1rem' }} />
+              </Form.Item>
+
+              <Form.Item
+                name="sampleInput"
+                label="Sample Input"
+                rules={[{ required: true }]}
               >
-                Submit Challenge
-              </Button>
-            </Form.Item>
-          </Form>
+                <Input style={{ fontSize: '1rem' }} />
+              </Form.Item>
+
+              <Form.Item
+                name="sampleOutput"
+                label="Sample Output"
+                rules={[{ required: true }]}
+              >
+                <Input style={{ fontSize: '1rem' }} />
+              </Form.Item>
+
+              <Form.Item
+                name="difficultyLevel"
+                label="Difficulty Level"
+                rules={[{ required: true }]}
+              >
+                <Select style={{ fontSize: '1rem' }}>
+                  <Option value="Easy">Easy</Option>
+                  <Option value="Medium">Medium</Option>
+                  <Option value="Hard">Hard</Option>
+                </Select>
+              </Form.Item>
+
+              <Form.Item
+                name="programmingLanguage"
+                label="Programming Language"
+                rules={[{ required: true }]}
+              >
+                <Input style={{ fontSize: '1rem' }} />
+              </Form.Item>
+              <div className="flex justify-between">
+                <Form.Item label="">
+                  <Upload
+                    fileList={fileList}
+                    customRequest={handleUpload}
+                    maxCount={1}
+                  >
+                    <Button
+                      icon={
+                        <UploadOutlined
+                          onPointerEnterCapture={undefined}
+                          onPointerLeaveCapture={undefined}
+                        />
+                      }
+                      style={{ fontSize: '1rem' }} // Custom font size for Button
+                    >
+                      Click to Upload
+                    </Button>
+                  </Upload>
+                </Form.Item>
+
+                <Form.Item>
+                  <Button
+                    type="primary"
+                    htmlType="submit"
+                    className="bg-green-500 rounded-md"
+                    style={{ fontSize: '1rem' }} // Custom font size for Button
+                    onSelect={onFinish}
+                  >
+                    Submit Challenge
+                  </Button>
+                </Form.Item>
+              </div>
+            </Form>
+          </div>
         </div>
       </div>
       <Footer />
-    </div>
+    </>
   )
 }
