@@ -30,8 +30,8 @@ export default function MyDashboardPage() {
         const userChallenge = await Api.Challenge.findManyByUserId(userId)
         const t_Question = await Api.Challenge.findMany()
         const userattemps = await Api.Attempt.findManyByUserId(userId)
-        console.log(t_Question)
-        console.log(userAttemps)
+        // console.log(t_Question)
+        console.log(userattemps)
         setUserPostQuestion(userChallenge)
         setTotalQuestion(t_Question)
         setUserAttemps(userattemps)
@@ -51,7 +51,7 @@ export default function MyDashboardPage() {
     },
     {},
   )
-
+  // console.log(questionLevel['undefined'])
   const Delete = async values => {
     try {
       await Api.Challenge.deleteOne(values)
@@ -76,31 +76,29 @@ export default function MyDashboardPage() {
           strokeColor="purple"
         />
       </Card>
+
       <Card>
         <Progress
           percent={
-            Math.round(
-              (questionLevel['Easy'] ? questionLevel['Easy'].length : 0) /
-                userAttemps.length,
-            ) * 100
+            questionLevel['Easy']
+              ? (questionLevel['Easy'].length / userAttemps.length) * 100
+              : 0
           }
           strokeColor={'green'}
         />
         <Progress
           percent={
-            Math.round(
-              (questionLevel['Medium'] ? questionLevel['Medium'].length : 0) /
-                userAttemps.length,
-            ) * 100
+            questionLevel['Medium']
+              ? (questionLevel['Medium'].length / userAttemps.length) * 100
+              : 0
           }
           strokeColor={'red'}
         />
         <Progress
           percent={
-            Math.round(
-              (questionLevel['Hard'] ? questionLevel['Hard'].length : 0) /
-                userAttemps.length,
-            ) * 100
+            questionLevel['Hard']
+              ? (questionLevel['Hard'].length / userAttemps.length) * 100
+              : 0
           }
           strokeColor={'blue'}
         />
