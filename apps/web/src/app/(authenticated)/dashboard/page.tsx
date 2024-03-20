@@ -31,8 +31,8 @@ export default function MyDashboardPage() {
         const userChallenge = await Api.Challenge.findManyByUserId(userId)
         const t_Question = await Api.Challenge.findMany()
         const userattemps = await Api.Attempt.findManyByUserId(userId)
-        console.log(t_Question)
-        console.log(userAttemps)
+        // console.log(t_Question)
+        console.log(userattemps)
         setUserPostQuestion(userChallenge)
         setTotalQuestion(t_Question)
         setUserAttemps(userattemps)
@@ -52,7 +52,7 @@ export default function MyDashboardPage() {
     },
     {},
   )
-
+  // console.log(questionLevel['undefined'])
   const Delete = async values => {
     try {
       await Api.Challenge.deleteOne(values)
@@ -93,70 +93,6 @@ export default function MyDashboardPage() {
           </div>
         </Flex>
       </Card>
-      <Flex
-        className="flex flex-col md:flex-row justify-around items-center h-96"
-        style={{ marginTop: '20px' }}
-      >
-        <div className="mb-6 md:mb-0 md:mr-8 text-center">
-          <Progress
-            percent={Math.round(
-              (userAttemps.length / totalQuestion.length) * 100,
-            )}
-            type="circle"
-            strokeColor="purple"
-            width={180}
-            trailColor="green"
-            strokeLinecap="butt"
-          />
-          <Typography.Text style={{ marginTop: '10px', display: 'block' }}>
-            Total Questions Solved
-          </Typography.Text>
-        </div>
-        <div className="w-full md:w-1/2">
-          <div className="flex items-center mb-4">
-            <Progress
-              percent={Math.round(
-                ((questionLevel['Easy'] ? questionLevel['Easy'].length : 0) /
-                  userAttemps.length) *
-                  100,
-              )}
-              strokeColor={'green'}
-              style={{ marginRight: '10px' }}
-              width={200}
-            />
-            <Typography.Text>Easy</Typography.Text>
-          </div>
-          <div className="flex items-center mb-4">
-            <Progress
-              percent={Math.round(
-                ((questionLevel['Medium']
-                  ? questionLevel['Medium'].length
-                  : 0) /
-                  userAttemps.length) *
-                  100,
-              )}
-              strokeColor={'yellow'}
-              style={{ marginRight: '10px' }}
-              width={200}
-            />
-            <Typography.Text>Medium</Typography.Text>
-          </div>
-          <div className="flex items-center">
-            <Progress
-              percent={Math.round(
-                ((questionLevel['Hard'] ? questionLevel['Hard'].length : 0) /
-                  userAttemps.length) *
-                  100,
-              )}
-              strokeColor={'red'}
-              style={{ marginRight: '10px' }}
-              width={200}
-            />
-            <Typography.Text>Hard</Typography.Text>
-          </div>
-        </div>
-      </Flex>
-
       <Card>
         {userPostQuestion.map((Name, i) => (
           <Card key={i} className="flex justify-between w-full">

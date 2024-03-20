@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common'
 import { ConfigurationService } from '@server/core/configuration'
 import { Logger, LoggerService } from '@server/libraries/logger'
 import { ReadStream } from 'fs'
-import OpenaiSDK from 'openai'
+import OpenAI from 'openai'
 import { ChatCompletionMessageParam } from 'openai/resources'
 
 enum OpenaiModel {
@@ -14,7 +14,7 @@ enum OpenaiModel {
 
 @Injectable()
 export class Openai {
-  private api: OpenaiSDK
+  private api: OpenAI
 
   private logger: Logger
 
@@ -38,7 +38,7 @@ export class Openai {
         return
       }
 
-      this.api = new OpenaiSDK({ apiKey })
+      this.api = new OpenAI({ apiKey })
 
       this.logger.success(`Openai is active`)
     } catch (error) {
@@ -109,14 +109,12 @@ export class Openai {
   }
 
   private parseResponseContent(
-    response: OpenaiSDK.Chat.Completions.ChatCompletion,
+    response: OpenAI.Chat.Completions.ChatCompletion,
   ): string {
     return response.choices[0].message.content
   }
 
-  private parseResponseImage(
-    response: OpenaiSDK.Images.ImagesResponse,
-  ): string {
+  private parseResponseImage(response: OpenAI.Images.ImagesResponse): string {
     return response.data[0].url
   }
 }

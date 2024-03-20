@@ -36,7 +36,7 @@ export default function PostChallengePage() {
         userId,
       })
 
-      // const res = await Api.Ai.chat('hello')
+      // const res = await Api.Ai.chat('indias capital')
       // console.log(res)
 
       enqueueSnackbar('Challenge submitted successfully', {
