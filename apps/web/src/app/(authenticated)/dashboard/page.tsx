@@ -30,7 +30,7 @@ export default function MyDashboardPage() {
         const t_Question = await Api.Challenge.findMany()
         const userattemps = await Api.Attempt.findManyByUserId(userId)
         // console.log(postQuestion)
-        // console.log(t_Question)
+        console.log(userAttemps)
         setUserPostQuestion(userChallenge)
         setTotalQuestion(t_Question)
         setUserAttemps(userattemps)

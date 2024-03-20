@@ -4,7 +4,7 @@ import { useAuthentication } from '@web/modules/authentication'
 import { executeCode } from 'apps/server/src/modules/solve/api.js'
 import { useParams, useRouter } from 'next/navigation'
 import { useSnackbar } from 'notistack'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import QuestionData from './QuestionDetails'
 
 const Output = ({ editorRef, language }) => {
@@ -18,9 +18,31 @@ const Output = ({ editorRef, language }) => {
   const { enqueueSnackbar } = useSnackbar()
   const router = useRouter()
   const params = useParams<any>()
+  const [challengName, setChallengeName] = useState<any>(null)
+
+  useEffect(() => {
+    const fetchChallenge = async () => {
+      try {
+        const challengeFound = await Api.Challenge.findOne(params.id, {
+          includes: ['user'],
+        })
+        console.log(challengeFound)
+        setChallengeName(challengeFound)
+      } catch (error) {
+        enqueueSnackbar('Failed to load challenge details', {
+          variant: 'error',
+        })
+      }
+    }
+
+    if (params.id) {
+      fetchChallenge()
+    }
+  }, [params.id])
 
   const runCode = async () => {
     const sourceCode = editorRef.current.getValue()
+
     if (!sourceCode) return
     try {
       setIsLoading(true)
@@ -43,13 +65,29 @@ const Output = ({ editorRef, language }) => {
   const submit = async () => {
     try {
       setIsSubmiting(true)
-      await Api.Attempt.createOneByUserId(params.id, { userId: userId! })
+      await Api.Attempt.createOneByChallengeId(params.id, {
+        userId: userId!,
+      })
       enqueueSnackbar('Solution submitted successfully', { variant: 'success' })
       router.push(`/challenges/${params.id}`)
     } catch (error) {
       enqueueSnackbar('Failed to submit solution', { variant: 'error' })
     } finally {
       setIsSubmiting(false)
+    }
+
+    try {
+      if (output[0] === challengName?.sampleOutput) {
+        enqueueSnackbar('Solution submitted successfully', {
+          variant: 'success',
+        })
+      } else {
+        throw new Error('Wrong answer')
+      }
+    } catch (error) {
+      enqueueSnackbar('Failed to submitted successfully', {
+        variant: 'error',
+      })
     }
   }
 

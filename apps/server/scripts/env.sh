@@ -11,7 +11,7 @@ echo "SERVER_AUTHENTICATION_TOKEN_METHOD=header" >> .env
 
 echo "# Optional" >> .env
 echo "SERVER_AUTHENTICATION_TOKEN_METHOD=header" >> .env
-echo "SERVER_OPENAI_API_KEY=" >> .env
+echo "SERVER_OPENAI_API_KEY=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" >> .env
 echo "SERVER_GOOGLE_CLIENT_ID=" >> .env
 echo "SERVER_EMAIL_MAILPIT_HOST=" >> .env
 echo "SERVER_EMAIL_MAILPIT_PORT=" >> .env
