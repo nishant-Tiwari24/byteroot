@@ -1,8 +1,9 @@
 'use client'
+import { DeleteFilled } from '@ant-design/icons'
 import { Api } from '@web/domain'
 import { PageLayout } from '@web/layouts/Page.layout'
 import { useAuthentication } from '@web/modules/authentication'
-import { Card, Progress, Statistic } from 'antd'
+import { Button, Card, Progress, Statistic } from 'antd'
 import { useParams, useRouter } from 'next/navigation'
 import { useSnackbar } from 'notistack'
 import React, { useEffect, useState } from 'react'
@@ -96,8 +97,14 @@ export default function MyDashboardPage() {
       </Card>
       <Card>
         {userPostQuestion.map((Name, i) => (
-          <Card key={i}>
+          <Card key={i} className="flex justify-between w-full">
             <React.Fragment key={Name.id}>{Name.name}</React.Fragment>
+            <Button>
+              <DeleteFilled
+                onPointerEnterCapture={undefined}
+                onPointerLeaveCapture={undefined}
+              />
+            </Button>
           </Card>
         ))}
       </Card>
