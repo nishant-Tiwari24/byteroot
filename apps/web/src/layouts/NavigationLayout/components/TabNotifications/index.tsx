@@ -1,4 +1,4 @@
-import { BellFilled, BellOutlined } from '@ant-design/icons'
+import { BellFilled } from '@ant-design/icons'
 import { RouterObject } from '@web/core/router'
 import { useCoreStore } from '@web/core/store'
 import { Badge, Button } from 'antd'
@@ -24,7 +24,14 @@ export const TabNotification: React.FC = () => {
       >
         <Button
           onClick={() => goTo(RouterObject.route.NOTIFICATIONS)}
-          icon={<BellFilled className="text-green-200" size={24} />}
+          icon={
+            <BellFilled
+              className="text-green-200"
+              size={24}
+              onPointerEnterCapture={undefined}
+              onPointerLeaveCapture={undefined}
+            />
+          }
           shape="circle"
         />
       </Badge>

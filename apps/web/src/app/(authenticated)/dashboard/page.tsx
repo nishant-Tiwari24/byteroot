@@ -52,6 +52,16 @@ export default function MyDashboardPage() {
     {},
   )
 
+  const Delete = async values => {
+    try {
+      await Api.Challenge.deleteOne(values)
+      enqueueSnackbar('Question successfully deleted', { variant: 'success' })
+      location.reload()
+    } catch (error) {
+      enqueueSnackbar('Failed to delete challenges', { variant: 'error' })
+    }
+  }
+
   return (
     <PageLayout layout="full-width">
       <Card>
@@ -99,7 +109,7 @@ export default function MyDashboardPage() {
         {userPostQuestion.map((Name, i) => (
           <Card key={i} className="flex justify-between w-full">
             <React.Fragment key={Name.id}>{Name.name}</React.Fragment>
-            <Button>
+            <Button onClick={() => Delete(Name.id)}>
               <DeleteFilled
                 onPointerEnterCapture={undefined}
                 onPointerLeaveCapture={undefined}
