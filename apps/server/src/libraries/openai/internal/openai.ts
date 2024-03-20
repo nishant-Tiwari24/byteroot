@@ -6,7 +6,7 @@ import OpenaiSDK from 'openai'
 import { ChatCompletionMessageParam } from 'openai/resources'
 
 enum OpenaiModel {
-  DEFAULT = 'gpt-3.5-turbo-16k',
+  DEFAULT = 'gpt-3.5-turbo',
   IMAGE = 'dall-e-3',
   AUDIO_TO_TEXT = 'whisper-1',
   TEXT_TO_AUDIO = 'tts-1',

@@ -2,7 +2,6 @@
 
 import { UploadOutlined } from '@ant-design/icons'
 import { Api } from '@web/domain'
-import { PageLayout } from '@web/layouts/Page.layout'
 import { useAuthentication } from '@web/modules/authentication'
 import { Button, Form, Input, Select, Typography, Upload } from 'antd'
 import { useRouter } from 'next/navigation'
@@ -13,6 +12,9 @@ const { Title, Text } = Typography
 const { Option } = Select
 
 export default function PostChallengePage() {
+  // const openai = new OpenAI({
+  //   apiKey: process.env.API, // This is the default and can be omitted
+  // })
   const router = useRouter()
   const authentication = useAuthentication()
   const userId = authentication.user?.id
@@ -33,6 +35,10 @@ export default function PostChallengePage() {
         imageUrl: fileList.length > 0 ? fileList[0].url : undefined,
         userId,
       })
+
+      // const res = await Api.Ai.chat('hello')
+      // console.log(res)
+
       enqueueSnackbar('Challenge submitted successfully', {
         variant: 'success',
       })
@@ -40,9 +46,6 @@ export default function PostChallengePage() {
     } catch (error) {
       enqueueSnackbar('Failed to submit challenge', { variant: 'error' })
     }
-    const prompt = `Challenge Name: ${values.name}\nDescription: ${values.description}\nSample Input: ${values.sampleInput}\nSample Output: ${values.sampleOutput}\nDifficulty Level: ${values.difficultyLevel}\nProgramming Language: ${values.programmingLanguage}\n\nDo you want to submit this challenge?`
-
-    console.log(prompt)
   }
 
   return (
@@ -72,7 +75,7 @@ export default function PostChallengePage() {
                 name="name"
                 label="Challenge Name"
                 className=""
-                rules={[{ required: true }]}
+                rules={[{ required: false }]}
               >
                 <Input style={{ fontSize: '1rem' }} />
               </Form.Item>
@@ -84,7 +87,7 @@ export default function PostChallengePage() {
               <Form.Item
                 name="sampleInput"
                 label="Sample Input"
-                rules={[{ required: true }]}
+                rules={[{ required: false }]}
               >
                 <Input style={{ fontSize: '1rem' }} />
               </Form.Item>
@@ -92,7 +95,7 @@ export default function PostChallengePage() {
               <Form.Item
                 name="sampleOutput"
                 label="Sample Output"
-                rules={[{ required: true }]}
+                rules={[{ required: false }]}
               >
                 <Input style={{ fontSize: '1rem' }} />
               </Form.Item>
@@ -100,7 +103,7 @@ export default function PostChallengePage() {
               <Form.Item
                 name="difficultyLevel"
                 label="Difficulty Level"
-                rules={[{ required: true }]}
+                rules={[{ required: false }]}
               >
                 <Select style={{ fontSize: '1rem' }}>
                   <Option value="Easy">Easy</Option>
@@ -112,7 +115,7 @@ export default function PostChallengePage() {
               <Form.Item
                 name="programmingLanguage"
                 label="Programming Language"
-                rules={[{ required: true }]}
+                rules={[{ required: false }]}
               >
                 <Input style={{ fontSize: '1rem' }} />
               </Form.Item>
