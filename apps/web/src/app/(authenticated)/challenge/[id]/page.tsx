@@ -79,12 +79,14 @@ export default function ChallengeDetailsPage() {
                 <Space>
                   <Button
                     type="primary"
+                    className="bg-blue-400 hover:bg-blue-500 text-black"
                     icon={<PlayCircleOutlinedAny />}
                     onClick={navigateToAttempt}
                   >
                     Attempt Challenge
                   </Button>
                   <Button
+                    className="bg-blue-400 hover:bg-blue-500 text-black"
                     icon={<MessageOutlinedAny />}
                     onClick={navigateToDiscussion}
                   >

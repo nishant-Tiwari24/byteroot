@@ -1,7 +1,7 @@
 import { Box, Button, Text, useToast } from '@chakra-ui/react'
 import { Api } from '@web/domain'
 import { useAuthentication } from '@web/modules/authentication'
-import { Form } from 'antd'
+import { Flex, Form } from 'antd'
 import { executeCode } from 'apps/server/src/modules/solve/api.js'
 import { useParams, useRouter } from 'next/navigation'
 import { useSnackbar } from 'notistack'
@@ -67,10 +67,13 @@ const Output = ({ editorRef, language }) => {
   const submit = async values => {
     try {
       setIsSubmiting(true)
-      await Api.Attempt.createOneByChallengeId(params.id, {
-        // value: values.name,
-        userId: userId!,
-      })
+      if (output[0] !== challengName?.sampleOutput) {
+        throw new Error('Wrong answer')
+      }
+      // await Api.Attempt.createOneByChallengeId(params.id, {
+      //   // value: values.name,
+      //   userId: userId!,
+      // })
       enqueueSnackbar('Solution submitted successfully', { variant: 'success' })
       router.push(`/challenges/${params.id}`)
     } catch (error) {
@@ -79,55 +82,61 @@ const Output = ({ editorRef, language }) => {
       setIsSubmiting(false)
     }
 
-    try {
-      if (output[0] === challengName?.sampleOutput) {
-        enqueueSnackbar('Solution submitted successfully', {
-          variant: 'success',
-        })
-      } else {
-        throw new Error('Wrong answer')
-      }
-    } catch (error) {
-      enqueueSnackbar('Failed to submitted successfully', {
-        variant: 'error',
-      })
-    }
+    // try {
+    //   if (output[0] === challengName?.sampleOutput) {
+    //     enqueueSnackbar('Solution submitted successfully', {
+    //       variant: 'success',
+    //     })
+    //   } else {
+    //     throw new Error('Wrong answer')
+    //   }
+    // } catch (error) {
+    //   enqueueSnackbar('Failed to submitted successfully', {
+    //     variant: 'error',
+    //   })
+    // }
   }
 
   return (
     <Box w="35%">
-      <Text className="text-2xl">Output:</Text>
       <QuestionData />
       <Box
         height="25vh"
-        p={2}
+        p={8}
         color={isError ? 'red.400' : ''}
         border="1px solid"
         borderRadius={4}
         borderColor={isError ? 'red.500' : '#333'}
+        className="bg-zinc-800"
       >
         {output
           ? output.map((line, i) => <Text key={i}>{line}</Text>)
           : 'Click "Run Code" to see the output here'}
       </Box>
-      <Button
-        variant="outline"
-        colorScheme="green"
-        mb={4}
-        isLoading={isLoading}
-        onClick={runCode}
-      >
-        Run Code
-      </Button>
-      <Button
-        variant="outline"
-        colorScheme="green"
-        mb={4}
-        isLoading={isSubmititng}
-        onClick={submit}
-      >
-        Submit
-      </Button>
+      <Flex justify="space-between -pt-4">
+        <Button
+          variant="outline"
+          colorScheme="green"
+          isLoading={isLoading}
+          onClick={runCode}
+          flex="1"
+          mr={4}
+          className="bg-green-400 text-black p-1 rounded-md"
+        >
+          Run Code
+        </Button>
+        <Button
+          variant="outline"
+          colorScheme="green"
+          isLoading={isSubmititng}
+          onClick={submit}
+          flex="1"
+          ml={4}
+          className="bg-yellow-400 text-black p-1 rounded-md"
+        >
+          Submit
+        </Button>
+      </Flex>
     </Box>
   )
 }

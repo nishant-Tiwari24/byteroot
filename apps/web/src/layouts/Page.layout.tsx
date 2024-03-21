@@ -54,7 +54,7 @@ export const PageLayout: React.FC<Props> = ({
           {...props}
           {...breakpoints}
           className="p-2"
-          style={{ paddingBottom: '100px' }}
+          style={{ paddingBottom: '80px' }}
         >
           {isCentered && (
             <Flex

@@ -20,10 +20,9 @@ export const Logo: React.FC<Props> = ({
     <>
       <img
         src={'./4.png'}
-        height="40px"
+        height="30px"
         width="150px"
         style={{
-          borderRadius: '10px',
           cursor: 'pointer',
           ...style,
         }}

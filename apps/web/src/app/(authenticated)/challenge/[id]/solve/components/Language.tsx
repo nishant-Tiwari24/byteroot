@@ -8,16 +8,17 @@ const ACTIVE_COLOR = 'blue.400'
 const LanguageSelector = ({ language, onSelect }) => {
   return (
     <Box ml={2} mb={4}>
-      <Text mb={2} fontSize="lg">
-        Language:
-      </Text>
       <Select
         value={language}
         onChange={onSelect} // Use onSelect directly as onChange handler
-        className="w-40 rounded-md text-black border-1"
+        className="w-60 rounded-md text-black border-1"
       >
         {languages.map(([lang, version]) => (
-          <Select.Option key={lang} value={lang} className="bg-zinc-500">
+          <Select.Option
+            key={lang}
+            value={lang}
+            className="border-[1px] border-zinc-500 gap-1"
+          >
             {`${lang} ${version}`}
           </Select.Option>
         ))}

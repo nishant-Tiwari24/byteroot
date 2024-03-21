@@ -187,21 +187,23 @@ export default function MyDashboardPage() {
       <h1 className="text-2xl font-semibold mt-6 md:mb-8 text-gray-400 px-4">
         User Activity in the last month
       </h1>
-      <ContributionCalendar
-        data={data}
-        start="2023-04-04"
-        end="2024-11-19"
-        daysOfTheWeek={['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']}
-        textColor="gray"
-        startsOnSunday={true}
-        includeBoundary={true}
-        theme="dark_grass"
-        cx={18}
-        cy={18}
-        cr={4}
-        onCellClick={(e, data) => console.log(data)}
-        scroll={false}
-      />
+      <Card>
+        <ContributionCalendar
+          data={data}
+          start="2023-04-04"
+          end="2024-11-19"
+          daysOfTheWeek={['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']}
+          textColor="gray"
+          startsOnSunday={true}
+          includeBoundary={true}
+          theme="dark_grass"
+          cx={18}
+          cy={18}
+          cr={4}
+          onCellClick={(e, data) => console.log(data)}
+          scroll={false}
+        />
+      </Card>
 
       <h1 className="text-2xl text-gray-400 font-semibold mt-8 md:mt-12 px-4">
         Question posted by user

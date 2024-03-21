@@ -53,10 +53,10 @@ export default function ChallengeDetailsPage() {
   return (
     <div>
       <Row justify="center">
-        <Col>
-          <Card style={{ width: '700px' }}>
+        <Col className="mt-10 bg-zinc-700">
+          <Card style={{ width: '540px' }}>
             <Title level={2}>{challenge?.name}</Title>
-            <Text type="secondary">
+            <Text type="secondary" className="text-green-400">
               By {challenge?.user?.name || 'Unknown author'}
             </Text>
             <Paragraph>
@@ -81,6 +81,7 @@ export default function ChallengeDetailsPage() {
             </Paragraph>
             <Space>
               <Button
+                className="bg-blue-500 text-black"
                 icon={<MessageOutlinedAny />}
                 onClick={navigateToDiscussion}
               >
