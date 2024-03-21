@@ -88,7 +88,7 @@ export default function ExploreChallengesPage() {
                       prefix={
                         <HeartFilled
                           value={likes}
-                          className="hover:text-blue-400 focus:text-blue-400 w-4 h-4"
+                          className="hover:text-red-500 focus:text-red-500 w-4 h-4"
                           onClick={handleLike}
                           onPointerEnterCapture={undefined}
                           onPointerLeaveCapture={undefined}
