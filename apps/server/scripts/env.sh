@@ -12,7 +12,7 @@ echo "SERVER_AUTHENTICATION_TOKEN_METHOD=header" >> .env
 echo "# Optional" >> .env
 echo "SERVER_AUTHENTICATION_TOKEN_METHOD=header" >> .env
 echo "SERVER_OPENAI_API_KEY=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" >> .env
-echo "SERVER_GOOGLE_CLIENT_ID=" >> .env
+echo "SERVER_GOOGLE_CLIENT_ID=721447659421-5g3jcfgk26q8g5od3d2jhdr9sbo13pns.apps.googleusercontent.com" >> .env
 echo "SERVER_EMAIL_MAILPIT_HOST=" >> .env
 echo "SERVER_EMAIL_MAILPIT_PORT=" >> .env
 echo "SERVER_EMAIL_MAILJET_API_KEY=" >> .env

@@ -8,13 +8,11 @@ import { useRouter } from 'next/navigation'
 import { useSnackbar } from 'notistack'
 import { useState } from 'react'
 import Footer from '../../home/components/Footer'
+
 const { Title, Text } = Typography
 const { Option } = Select
 
 export default function PostChallengePage() {
-  // const openai = new OpenAI({
-  //   apiKey: process.env.API, // This is the default and can be omitted
-  // })
   const router = useRouter()
   const authentication = useAuthentication()
   const userId = authentication.user?.id
@@ -30,15 +28,20 @@ export default function PostChallengePage() {
 
   const onFinish = async values => {
     try {
+      const prompt = `name:${values.name}\ndescription:${values.description}\n
+      sampleinput:${values.sampleInput}\nsampleoutput:${values.sampleOutput}\n
+      dificultylevel:${values.difficultyLevel}\nprogramminglanguage:${values.programmingLanguage}
+      is this a valid coding question answer this in Yes or No`
+      const res = await Api.Ai.chat(prompt)
+      console.log(res)
+      if (res != 'yes') {
+        throw new Error('Not a valid question')
+      }
       await Api.Challenge.createOneByUserId(userId, {
         ...values,
         imageUrl: fileList.length > 0 ? fileList[0].url : undefined,
         userId,
       })
-
-      // const res = await Api.Ai.chat('indias capital')
-      // console.log(res)
-
       enqueueSnackbar('Challenge submitted successfully', {
         variant: 'success',
       })

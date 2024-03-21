@@ -29,7 +29,7 @@ export const Topbar: React.FC<Props> = ({
     <Header
       className="border-b-2 border-zinc-700"
       style={{
-        height: '65px',
+        height: '70px',
       }}
     >
       <Flex
@@ -39,7 +39,7 @@ export const Topbar: React.FC<Props> = ({
         style={{ height: '100%' }}
       >
         {logo && (
-          <div style={{ marginRight: '20px', paddingTop: '12px' }}>{logo}</div>
+          <div style={{ marginRight: '20px', paddingTop: 'auto' }}>{logo}</div>
         )}
 
         {!isMobile && (

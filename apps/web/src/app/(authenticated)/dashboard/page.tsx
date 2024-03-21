@@ -96,7 +96,9 @@ export default function MyDashboardPage() {
             <Statistic
               title="Total Progress"
               className="text-blue-500"
-              value={(userPostQuestion.length / totalQuestion.length) * 100}
+              value={Math.round(
+                (userPostQuestion.length / totalQuestion.length) * 100,
+              )}
               valueStyle={{ color: '#3f8600' }}
               suffix="%"
             />

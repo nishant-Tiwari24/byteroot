@@ -31,6 +31,7 @@ export default function ExploreChallengesPage() {
           },
           includes: ['user'],
         })
+        console.log(challengesFound)
         setChallenges(challengesFound)
       } catch (error) {
         enqueueSnackbar('Failed to fetch challenges', { variant: 'error' })
