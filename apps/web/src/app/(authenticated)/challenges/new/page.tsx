@@ -34,7 +34,7 @@ export default function PostChallengePage() {
       is this a valid coding question answer this in Yes or No`
       const res = await Api.Ai.chat(prompt)
       console.log(res)
-      if (res != 'yes') {
+      if (res != 'Yes') {
         throw new Error('Not a valid question')
       }
       await Api.Challenge.createOneByUserId(userId, {

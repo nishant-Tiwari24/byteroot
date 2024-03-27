@@ -15,7 +15,7 @@ const Footer: React.FC = () => {
     >
       <p className="text-white text-l">
         <Link href="mailto:developercode.assistance@gmail.com">
-          developercode.assistance@gmail.com
+          byteroot.assistance@gmail.com
         </Link>
       </p>
       <p className="text-slate-white text-l">

@@ -1,5 +1,3 @@
-import React from 'react'
-import { cn } from './cn'
 import { Spotlight } from './Hero'
 
 export function SpotlightPreview() {
@@ -14,10 +12,9 @@ export function SpotlightPreview() {
           Your Coding <br /> and Challenge Arena.
         </h1>
         <p className="mt-8 font-normal text-xl text-green-200 max-w-2xl text-center mx-auto">
-          Spotlight effect is a great way to draw attention to a specific part
-          of the page. Here, we are drawing the attention towards the text
-          section of the page. I don&apos;t know why but I&apos;m running out of
-          copy.
+          It stands out as a unique application, promoting community engagement
+          and collaborative activities, encompassing both problem-solving and
+          problem creation.
         </p>
       </div>
     </div>

@@ -77,7 +77,9 @@ const Output = ({ editorRef, language }) => {
       enqueueSnackbar('Solution submitted successfully', { variant: 'success' })
       router.push(`/challenges/${params.id}`)
     } catch (error) {
-      enqueueSnackbar('Failed to submit solution', { variant: 'error' })
+      enqueueSnackbar('Incorrect Output! Failed to submit solution', {
+        variant: 'error',
+      })
     } finally {
       setIsSubmiting(false)
     }
