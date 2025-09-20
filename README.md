@@ -25,6 +25,24 @@ Institutions can use the application for conducting discussions, giving assignme
 
 **Byteroots** aims to create a collaborative environment for coders worldwide, where they can share knowledge, solve coding challenges, and engage in discussions, fostering a sense of community and mutual support. By offering a platform for problem-solving, code creation, and discussion, Byteroots encourages innovation and creativity among its users. It serves as a space where new ideas can be explored, tested, and refined, leading to the development of innovative solutions and projects.
 
+
+## Getting Started
+
+To get started with Byteroot, follow these simple steps:
+
+1. Clone the repository
+2. Install dependencies using `npm install`
+3. Run the development server with `npm run dev`
+4. Open your browser and navigate to `localhost:3000`
+
+## Contributing
+
+We welcome contributions from the community! Please feel free to:
+- Report bugs and issues
+- Suggest new features
+- Submit pull requests
+- Improve documentation
+
 ---
 
 This README provides an overview of the Byteroot project, its objectives, technologies used, target audience, future plans, and main motive. Join us in the journey of collaborative coding and problem-solving at Byteroot!
